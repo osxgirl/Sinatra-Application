@@ -1,0 +1,14 @@
+<h2>welcome, <%= current_user.username %> </h2>
+
+<a href="/comments/new">:compose</a>
+<a href="/logout">:logout</a>
+
+<ul>
+    <% @comments.each do |comment| %>
+    <li>
+     <a href="/comments/<%= comment.id %>"><%= comment.content %></a>
+    </li>
+    <% end %>
+</ul>
+
+
