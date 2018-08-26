@@ -1,14 +1,13 @@
 <div class="container">
-
-    <p><%= @comment.content %></p>
+<h1> we're sorry 🤕</h1>
+    <p> <%= current_user.username %>'s <%= current_user.device %> <%= @comment.content %></p>
 
         <button type="submit" name="edit">
-        <a style="text-decoration:none" href="/tweets/<%= @comment.id %>/edit">Edit Comment</a>
+        <a style="text-decoration:none" href="/comments/<%= @comment.id %>/edit">Edit Comment</a>
         </button>
 
     <form action="/comments/<%=@comment.id%>/delete" method="POST">
-        <input type="hidden" name="_method" value="DELETE">
-        <input type="submit" value="Delete Comment">
+        <input type="hidden" name="_method" value="DELETE"><input type="submit" value="Delete Comment">
     </form>
 
         <a href="/comments">:back</a></p>

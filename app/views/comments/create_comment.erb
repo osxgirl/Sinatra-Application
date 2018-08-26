@@ -1,10 +1,6 @@
-<h1>we're listening</h1>
-
-<a href="/services/<%= service.id %>"><%= service.content %></a>
-
+<h1>we're listening 👂</h1>
 <form action="/comments" method="POST">
-    <label>👂</label>
-
+    <p>Device: <input type="device" name="device"></input></p>
     <textarea name="content" id="content" rows="4" cols="50"></textarea>
 
 <input type="submit" name="submit" value="submit"/>
