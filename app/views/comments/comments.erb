@@ -1,13 +1,15 @@
-<h1>welcome, <%= current_user.username %> </h1>
-<a href="/comments/new">:compose</a>
-<a href="/logout">:logout</a>
+<h1>here's your ledger 📒</h1>
+<a href="/comments/new">Start</a>
+<a href="/logout">Logout</a>
 
 <ul>
     <% @comments.each do |comment| %>
     <li>
-     <a href="/comments/<%= comment.id %>"><%= comment.content %></a>
+       <a href="/comments/<%= comment.id %>"><%= comment.content %><%= comment.device %></a>
     </li>
     <% end %>
-</ul>
 
+
+</ul>
+<p><font size="1" color="red"><a href="tel:+1800APLCARE"><font color="red">EMERGENCY</font></a></p>
 

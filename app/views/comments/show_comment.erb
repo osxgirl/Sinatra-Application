@@ -1,7 +1,12 @@
 <div class="container">
-<h1> we're sorry 🤕</h1>
-    <p> <%= current_user.username %>'s <%= current_user.device %> <%= @comment.content %></p>
+<h1>🤕 we're sorry, <%= current_user.username %></h1>
+<h3> issue: <%= @comment.content %></h3>
 
+                    Video <br>
+                    <a href="tel:+1800APLCARE"><font color="red">Call</font><br>
+                    <a href="tel:+1800APLCARE"><font color="red">Text</font><br>
+
+<br>
         <button type="submit" name="edit">
         <a style="text-decoration:none" href="/comments/<%= @comment.id %>/edit">Edit Comment</a>
         </button>
@@ -10,6 +15,8 @@
         <input type="hidden" name="_method" value="DELETE"><input type="submit" value="Delete Comment">
     </form>
 
-        <a href="/comments">:back</a></p>
+        <a href="/comments"><</a></p>
+
+<p><font size="1" color="red"><a href="tel:+1800APLCARE"><font color="red">EMERGENCY</font></a></p>
 </div>
 
