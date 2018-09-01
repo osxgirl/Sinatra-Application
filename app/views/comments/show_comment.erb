@@ -1,10 +1,10 @@
 <div class="container">
-<h1>🤕 we're sorry, <%= current_user.username %></h1>
-<h3> issue: <%= @comment.content %></h3>
-
-                    Video <br>
-                    <a href="tel:+1800APLCARE"><font color="red">Call</font><br>
-                    <a href="tel:+1800APLCARE"><font color="red">Text</font><br>
+<h1>🤕 we're sorry, <%= current_user.username %> </h1>
+    <ul>
+        <a href="tel:+1800APLCARE"><font color="light blue">📹 video</font><br>
+        <a href="tel:+1800APLCARE"><font color="light blue">☎️ call</font><br>
+        <a href="tel:+1800APLCARE"><font color="light blue">📱 text</font>
+    </ul>
 
 <br>
         <button type="submit" name="edit">
@@ -14,8 +14,6 @@
     <form action="/comments/<%=@comment.id%>/delete" method="POST">
         <input type="hidden" name="_method" value="DELETE"><input type="submit" value="Delete Comment">
     </form>
-
-        <a href="/comments"><</a></p>
 
 <p><font size="1" color="red"><a href="tel:+1800APLCARE"><font color="red">EMERGENCY</font></a></p>
 </div>

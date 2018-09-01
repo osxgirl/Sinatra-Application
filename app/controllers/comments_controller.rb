@@ -22,9 +22,9 @@ post '/comments' do
     if logged_in?
         if params[:content].empty?
             redirect to "/comments/new"
-        else
-                @comment = current_user.comments.create(content: params[:content])
-                redirect to "/comments/#{@comment.id}"
+            else
+            @comment = current_user.comments.create(content: params[:content])
+            redirect to "/comments/#{@comment.id}"
         end
         else
         redirect to "/login"
@@ -75,4 +75,3 @@ delete '/comments/:id/delete' do
     redirect to '/comments'
 end
 end
-
