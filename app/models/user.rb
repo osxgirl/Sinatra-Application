@@ -1,10 +1,12 @@
 class User < ActiveRecord::Base
-    validates_presence_of :username, :password
+    validates :username, :presence => true
+    validates :password, :presence => true
+    validates :email, :presence => true,
+    :uniqueness => true
     
     has_many :comments
     has_many :services
     has_secure_password
-    #encrypt bcrypt server Auths
     
     def slug
         username.downcase.gsub(" ","-")
