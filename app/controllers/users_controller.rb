@@ -6,7 +6,6 @@ class UsersController < ApplicationController
 end
 
 get '/signup' do
-    # @duck = "quack"
     if !logged_in?
         erb :"users/create_user"
         else

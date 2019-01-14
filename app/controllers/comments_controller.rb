@@ -1,20 +1,13 @@
 class CommentsController < ApplicationController
     
-    get '/comments' do
+get '/comments' do
     if logged_in?
-    @user = current_user
-    @comments = Comment.all
-    erb :'/comments/comments'
+        #@user = current_user
+        #@comments = Comment.all
+        @comments = current_user.comments.all
+        erb :"comments/comments"
     else
-    redirect to '/login'
-end
-end
-
-get '/comments/new' do
-    if !logged_in?
-        redirect to "/login"
-        else
-        erb :"comments/create_comment"
+        redirect "/login"
     end
 end
 
@@ -30,27 +23,29 @@ post '/comments' do
         redirect to "/login"
     end
 end
+get '/comments/new' do
+    if logged_in?
+        erb :"comments/create_comment"
+        else
+        redirect "/login"
+    end
+end
 
 get '/comments/:id' do
     if logged_in?
-        @comment = Comment.find_by(params[:id])
+        @comment = Comment.find(params[:id])
         erb :"comments/show_comment"
         else
-        redirect to "/login"
+        redirect "/login"
     end
 end
 
 get '/comments/:id/edit' do
-    if !logged_in?
-        redirect to "/login"
+    if logged_in?
+        @comment = Comment.find(params[:id])
+        erb :"comments/edit_comment"
         else
-        @comment = Comment.find_by(params[:id])
-        
-        if @comment && @comment.user == current_user
-            erb :"comments/edit_comment"
-            else
-            redirect to "/comments"
-        end
+        redirect "/comments"
     end
 end
 
@@ -64,14 +59,22 @@ patch '/comments/:id' do
     end
 end
 
+post '/comments:id' do
+    @comment = Comment.find(params[:id])
+    @comment.content = params[:content]
+    if @comment.save
+        erb :"comment/show"
+        else
+        redirect "comment/#{@comment.id}/edit"
+    end
+end
 
 delete '/comments/:id/delete' do
-    @current_user = User.find_by_id(session[:user_id])
-    @comment = Comment.find_by_id(params[:id])
-    if @current_user.comments.find_by_id(@comment.id)
-        @comment.delete
+    comment = Comment.find(params[:id])
+    if comment.user == current_user
+        Comment.destroy(params[:id])
     end
-    
-    redirect to '/comments'
+    redirect "/login"
 end
+
 end
