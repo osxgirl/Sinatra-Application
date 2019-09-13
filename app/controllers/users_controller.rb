@@ -1,47 +1,27 @@
+
 class UsersController < ApplicationController
     
-    get '/users/:slug' do
-    @user = User.find_by_slug(params[:slug])
-    erb :"users/show"
-end
+    get '/signup' do
+        erb :"users/new.html"
+    end
 
-get '/signup' do
-    if !logged_in?
-        erb :"users/create_user"
+    post '/users' do
+        @user = User.new
+        @user.email = params[:email]
+        @user.password = params[:password]
+            if @user.save
+                redirect '/login'
+            else
+                erb :"users/new.html"
+            end
+        end
+
+    get '/sessions/login' do
+        if !logged_in?
+            erb :"users/login"
         else
-        redirect to "/comments"
+            redirect to "/posts"
+        end
     end
-end
-
-post '/signup' do
-    if params[:username].empty? || params[:email].empty? || params[:password].empty?
-        redirect to '/signup'
-        else
-        @user = User.create(params)
-        session[:user_id] = @user.id
-        redirect to "/comments"
-    end
-end
-
-get '/login' do
-    if !logged_in?
-        erb :"users/login"
-        else
-        redirect to "/comments"
-    end
-end
-
-post '/login' do
-    @user = User.find_by(username: params[:username])
-     @user && @user.authenticate(params[:password])
-        session[:user_id] = @user.id
-        redirect to "/comments"
-    end
-
-
-get "/logout" do
-    session.clear
-    redirect "/login"
-end
 
 end

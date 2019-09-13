@@ -1,23 +1,14 @@
-# frozen_string_literal: true
-
 source "https://rubygems.org"
-
-git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 
 # gem "rails"
 
-gem 'activerecord', '4.2.7.1', :require => 'active_record'
-gem 'sinatra-activerecord', :require => 'sinatra/activerecord'
-gem 'sqlite3'
 gem 'sinatra'
-gem 'thin'
-gem 'shotgun'
-gem 'tux'
-gem 'pry'
+gem 'sqlite3'
+gem 'activerecord', :require => "active_record"
 gem 'rake'
-gem 'rspec'
-gem 'rack-test'
-gem 'bcrypt'
-gem 'capybara'
+gem 'pry'
+gem 'tux'
+gem 'sinatra-activerecord'
 gem 'require_all'
-gem 'database_cleaner'
+gem 'shotgun'
+gem 'bcrypt', '~> 3.1.7'
