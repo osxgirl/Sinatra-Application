@@ -1,9 +1,19 @@
 <body style="background-color:#fbda00;">
 <h1>edit 🔨</h1>
+<<<<<<< HEAD
     <form action="/posts/<%= @post.id %>" method="POST">
         <input id="hidden" type="hidden" name="method" value="PATCH">
         <textarea name="content" id="content" rows="4" cols="50"><%= @post.content %></textarea>
 
         <input type="submit" value="submit"/>
     </form>
+=======
+
+<form action="/posts/<%= @post.id %>" method="POST">
+<input type="hidden" name="_method" value="PATCH">
+<textarea name="content" id="content" rows="4" cols="50"><%= @post.content %></textarea>
+
+<input type="submit" value="submit"/>
+</form>
+>>>>>>> fa78820d2fa12007ac2098212e63607e286fad2e
 </body>

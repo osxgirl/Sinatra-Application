@@ -5,7 +5,11 @@
     <ul>
         <% @posts.each do |post| %>
         <li>
+<<<<<<< HEAD
         <a href="/posts/<%= post.id %>"><%= post.content %></a>
+=======
+        <a href="/posts/<%= post.content %>"><%= post.id %></a>
+>>>>>>> fa78820d2fa12007ac2098212e63607e286fad2e
         </li>
         <% end %>
     </ul>
