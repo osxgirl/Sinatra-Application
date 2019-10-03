@@ -45,6 +45,7 @@ class PostsController < ApplicationController
     end
 
     patch '/posts/:id' do
+
         if @post = Post.find_by_id(params[:id])
             @post.content = params[:content]
             @post.save
@@ -53,26 +54,6 @@ class PostsController < ApplicationController
         end
     end
 
-
-    post '/posts/:id' do
-        @post = Post.find(params[:id])
-            if params[:content] != ""
-                @post.update(:content => params[:content])
-                redirect to "posts/#{@post.id}"
-            else
-                redirect to "posts/#{@post.id}/edit"
-            end
-    end
-
-    post '/posts:id' do
-        @post = Post.find(params[:id])
-        @post.content = params[:content]
-            if @post.save
-                erb :"posts/show_post"
-            else
-                redirect "posts/#{@post.id}/edit"
-            end
-    end
 
     delete '/posts/:id/delete' do
         @post = Post.find(params[:id])
