@@ -45,7 +45,6 @@ class PostsController < ApplicationController
     end
 
     patch '/posts/:id' do
-<<<<<<< HEAD
         if @post = Post.find_by_id(params[:id])
             @post.content = params[:content]
             @post.save
@@ -56,7 +55,6 @@ class PostsController < ApplicationController
 
 
     post '/posts/:id' do
-=======
         @post = Post.find(params[:id])
             if params[:content] != ""
                 @post.update(:content => params[:content])
@@ -67,7 +65,6 @@ class PostsController < ApplicationController
     end
 
     post '/posts:id' do
->>>>>>> fa78820d2fa12007ac2098212e63607e286fad2e
         @post = Post.find(params[:id])
         @post.content = params[:content]
             if @post.save
