@@ -1,0 +1,15 @@
+<body style="background-color:#fbda00;">
+    <h1>i s s u e s ☔︎ </h1>
+    <a href="/posts/new">CREATE</a>    <a href="/logout">LOGOUT</a>
+
+    <ul>
+        <% @posts.each do |post| %>
+        <li>
+        <a href="/posts/<%= post.id %>"><%= post.content %></a>
+        </li>
+        <% end %>
+    </ul>
+
+</body>
+
+

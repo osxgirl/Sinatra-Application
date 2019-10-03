@@ -1,37 +1,42 @@
-require './config/environment'
-
 class ApplicationController < Sinatra::Base
     
     configure do
         set :public_folder, 'public'
         set :views, 'app/views'
-        
         enable :sessions
-        set :session_secret, "secret"
+        set :session_secret, "not telling"
     end
 
     get '/' do
-        erb :index
+        "hello"
     end
+
 
     helpers do
         
-        def current_user
-          @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
-        end
-
         def logged_in?
-          !!session[:user_id]
+            #!!session[:email]
+            !!current_user
         end
-    end
 
-get '/sessions/login' do
-    if !logged_in?
-        erb :"users/login"
-        else
-        redirect to "/comments"
-    end
+        def current_user
+            @current_user ||= User.find_by(:email => session[:email]) if session[:email]
+            #@current_user ||= User.find(session[:email]) if session[:email]
+        end
+
+        def login(email, password)
+            user = User.find_by(:email => email)
+            if user && user.authenticate(password)
+                session[:email] = user.email
+            else
+                redirect '/login'
+            end
+        end
+
+        def logout!
+            session.clear
+        end
+
     end
 
 end
-

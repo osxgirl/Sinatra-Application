@@ -1,0 +1,9 @@
+<body style="background-color:#fbda00;">
+<h1>edit 🔨</h1>
+    <form action="/posts/<%= @post.id %>" method="POST">
+        <input id="hidden" type="hidden" name="method" value="PATCH">
+        <textarea name="content" id="content" rows="4" cols="50"><%= @post.content %></textarea>
+
+        <input type="submit" value="submit"/>
+    </form>
+</body>
