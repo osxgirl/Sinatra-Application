@@ -45,15 +45,14 @@ class PostsController < ApplicationController
     end
 
     patch '/posts/:id' do
-
-        if @post = Post.find_by_id(params[:id])
-            @post.content = params[:content]
-            @post.save
-        else
-            redirect to "posts/#{@post.id}/edit"
+            @post = Post.find_by_id(params[:id])
+                if  @post.user == current_user
+                    @post.content = params[:content]
+                    @post.save
+                else
+                redirect to "/posts/#{@post.id}/edit"
         end
     end
-
 
     delete '/posts/:id/delete' do
         @post = Post.find(params[:id])

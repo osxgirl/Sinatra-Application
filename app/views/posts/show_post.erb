@@ -1,23 +1,21 @@
-<body style="background-color:#fbda00;">
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" type=”text/css” href=”/style.css”">
+<link rel="stylesheet" href="/style.css">
+</head>
 
-<div class="container">
-<h1><%= @post.content %>
-
-<br>
-    <button type="submit" name="edit">
-    <a style="text-decoration:none" href="/posts/<%= @post.id %>/edit">Edit Post</a>
-    </button>
-<br>
-    <form action="/posts/<%=@post.id%>/delete" method="POST">
-<<<<<<< HEAD
-    <input id="hidden" type="hidden" name="_method" value="DELETE"><input type="submit" value="Delete Post">
-=======
-    <input type="hidden" name="_method" value="DELETE"><input type="submit" value="Delete Post">
->>>>>>> fa78820d2fa12007ac2098212e63607e286fad2e
-    </form>
-</div>
-
-<a href="https://imgur.com/JFge9XF">Mac + iPod</a>
-
+<body>
+    <div class="container">
+        <h1><%= @post.content %>
+            <br>
+            <button type="submit" name="edit">
+            <a style="text-decoration:none" href="/posts/<%= @post.id %>/edit">Edit Post</a>
+            </button>
+            <br>
+            <form action="/posts/<%=@post.id%>/delete" method="POST">
+            <input id="hidden" type="hidden" name="_method" value="DELETE"><input type="submit" value="Delete Post">
+            </form>
+    </div>
+    <a href="https://imgur.com/JFge9XF">Mac + iPod</a>
 </body>
 

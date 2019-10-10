@@ -1,15 +1,19 @@
-<body style="background-color:#fbda00;">
-<h1>s h o w 📄</h1>
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" type=”text/css” href=”/style.css”">
+<link rel="stylesheet" href="/style.css">
+</head>
 
-<h1><%=@user.email %>'s posts</h1>
-
-    <ul>
-        <% @user.posts.each do |post| %>
-            <li>
-            <%= post.content %>
-            </li>
-        <% end %>
-    </ul>
-
-
+<body>
+    <div class="container">
+        <h1>s h o w 📄</h1>
+            <h1><%=@user.email %>'s posts</h1>
+                <ul>
+                    <% @user.posts.each do |post| %>
+                    <li>
+                    <%= post.content %>
+                    </li>
+                    <% end %>
+                </ul>
+    </div>
 </body>
