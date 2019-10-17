@@ -49,6 +49,7 @@ class PostsController < ApplicationController
                 if  @post.user == current_user
                     @post.content = params[:content]
                     @post.save
+                    redirect to "/posts/#{@post.id}"
                 else
                 redirect to "/posts/#{@post.id}/edit"
         end
