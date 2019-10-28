@@ -1,21 +1,10 @@
-<!DOCTYPE html>
-<html>
-<link rel="stylesheet" type=”text/css” href=”/style.css”">
-<link rel="stylesheet" href="/style.css">
-</head>
-
-<body>
-    <div class="container">
-        <h1><%= @post.content %>
-            <br>
-            <button type="submit" name="edit">
+ <h1><%= @post.content %>
+        <button type="submit" name="edit">
             <a style="text-decoration:none" href="/posts/<%= @post.id %>/edit">Edit Post</a>
-            </button>
+        </button>
             <br>
-            <form action="/posts/<%=@post.id%>/delete" method="POST">
+        <form action="/posts/<%=@post.id%>/delete" method="POST">
             <input id="hidden" type="hidden" name="_method" value="DELETE"><input type="submit" value="Delete Post">
-            </form>
-    </div>
+        </form>
     <a href="https://imgur.com/JFge9XF">Mac + iPod</a>
-</body>
 

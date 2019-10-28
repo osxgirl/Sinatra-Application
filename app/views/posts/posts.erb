@@ -1,21 +1,11 @@
-<!DOCTYPE html>
-<html>
-<link rel="stylesheet" type=”text/css” href=”/style.css”">
-<link rel="stylesheet" href="/style.css">
-</head>
-
-<body>
-    <div class="container">
-        <h1>i s s u e s ☔︎ </h1>
-            <a href="/posts/new">CREATE</a>    <a href="/logout">LOGOUT</a>
-
-            <ul>
-                <% @posts.each do |post| %>
+<h1>i s s u e s ☔︎ </h1>
+    <a href="/posts/new">CREATE</a>
+    <a href="/logout">LOGOUT</a>
+        <ul>
+            <% @posts.each do |post| %>
                 <li>
-                    <a href="/posts/<%= post.id %>"><%= post.content %></a>
-                    <a href="/posts/<%= post.content %>"><%= post.id %></a>
+                <a href="/posts/<%= post.id %>"><%= post.content %></a>
+                <a href="/posts/<%= post.content %>"><%= post.id %></a>
                 </li>
-                <% end %>
-            </ul>
-    </div>
-</body>
+            <% end %>
+        </ul>
