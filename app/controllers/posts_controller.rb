@@ -31,12 +31,9 @@ class PostsController < ApplicationController
     end
 
     get '/posts/:id' do
-        if !logged_in?
-            redirect "/login"
-        else
-            @post = Post.find(params[:id])
-            erb :"posts/show_post"
-        end
+        redirect_if_not_logged_in
+        @post = Post.find(params[:id])
+        erb :"posts/show_post"
     end
 
     get '/posts/:id/edit' do
@@ -51,7 +48,7 @@ class PostsController < ApplicationController
                     @post.save
                     redirect to "/posts/#{@post.id}"
                 else
-                redirect to "/posts/#{@post.id}/edit"
+                redirect to "/posts"
         end
     end
 
@@ -60,7 +57,7 @@ class PostsController < ApplicationController
             if @post.user == current_user
                 Post.destroy(params[:id])
             end
-            redirect "/login"
+            redirect "/posts"
     end
 
 end

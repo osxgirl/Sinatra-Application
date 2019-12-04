@@ -21,13 +21,4 @@ class UsersController < ApplicationController
                 erb :"users/new.html"
             end
         end
-
-    get '/sessions/login' do
-        if !logged_in?
-            erb :"users/login"
-        else
-            redirect to "/posts"
-        end
-    end
-
 end
